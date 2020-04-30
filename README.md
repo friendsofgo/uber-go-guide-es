@@ -439,11 +439,7 @@ asegurar que el tiempo de ejecución de tu función es de nanosegundos. Se gana 
 ### El tamaño de los Canales es Uno o Ninguno
 
 Los canales normalmente deberían ser de tamaño uno o ser `unbuffered`. Por defecto, los canales son
-`unbuffered` y tienen un tamaño de cero. Cualquier otro tamaño debería de ser analizado con mucho detalle. Consider
-
-Channels should usually have a size of one or be unbuffered. By default,
-channels are unbuffered and have a size of zero. Any other size
-must be subject to a high level of scrutiny. Considerar el tamaño de nuestro canal evitará que acabemos sufriendo problemas de carga y bloqueos.
+`unbuffered` y tienen un tamaño de cero. Cualquier otro tamaño debería de ser analizado con mucho detalle.
 
 <table>
 <thead><tr><th>Incorrecto</th><th>Correcto</th></tr></thead>
