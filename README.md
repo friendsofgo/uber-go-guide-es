@@ -434,7 +434,7 @@ return p.count
 </tbody></table>
 
 El sobrecoste que tiene `defer` es extremadamente pequeño y sólo debe evitarse si puedes
-asegurar que asegurar que el tiempo de ejecución de tu función es de nanosegundos. Se gana mucho más con la legibilidad obtenida utilizando `defer` que el minúsculo coste que tiene utilizarlos. Esto se puede observar claramente en métodos largos que tienen más que simples accesos a memoria, dónde los otros cálculos son mucho más significantes que el `defer`.
+asegurar que el tiempo de ejecución de tu función es de nanosegundos. Se gana mucho más con la legibilidad obtenida utilizando `defer` que el minúsculo coste que tiene utilizarlos. Esto se puede observar claramente en métodos largos que tienen más que simples accesos a memoria, dónde los otros cálculos son mucho más significantes que el `defer`.
 
 ### El tamaño de los Canales es Uno o Ninguno
 
