@@ -67,6 +67,7 @@ Además iremos dejando todos los cambios que se vayan realizando en el fichero [
   - [Manejando los errores de Type Assertion](#manejando-los-errores-de-type-assertion)
   - [No Panic](#no-panic)
   - [Usa go.uber.org/atomic](#usa-gouberorgatomic)
+  - [Evite globales mutables](#evite-globales-mutables)
 - [Rendimiento](#rendimiento)
   - [Usar strconv en lugar fmt](#usar-strconv-en-lugar-fmt)
   - [Evitar convertir strings a bytes](#evitar-convertir-strings-a-bytes)
@@ -909,6 +910,74 @@ func (f *foo) start() {
 
 func (f *foo) isRunning() bool {
   return f.running.Load()
+}
+```
+
+</td></tr>
+</tbody></table>
+
+### Evite globales mutables
+
+Evite la mutación de variables globales, en su lugar opte por la inyección de dependencias.
+Esto se aplica tanto a los punteros de función como a otros tipos de valores.
+
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
+
+```go
+// sign.go
+var _timeNow = time.Now
+func sign(msg string) string {
+  now := _timeNow()
+  return signWithTime(msg, now)
+}
+```
+
+</td><td>
+
+```go
+// sign.go
+type signer struct {
+  now func() time.Time
+}
+func newSigner() *signer {
+  return &signer{
+    now: time.Now,
+  }
+}
+func (s *signer) Sign(msg string) string {
+  now := s.now()
+  return signWithTime(msg, now)
+}
+```
+
+</td></tr>
+<tr><td>
+
+```go
+// sign_test.go
+func TestSign(t *testing.T) {
+  oldTimeNow := _timeNow
+  _timeNow = func() time.Time {
+    return someFixedTime
+  }
+  defer func() { _timeNow = oldTimeNow }()
+  assert.Equal(t, want, sign(give))
+}
+```
+
+</td><td>
+
+```go
+// sign_test.go
+func TestSigner(t *testing.T) {
+  s := newSigner()
+  s.now = func() time.Time {
+    return someFixedTime
+  }
+  assert.Equal(t, want, s.Sign(give))
 }
 ```
 
