@@ -1,3 +1,7 @@
+# 2020-10-25
+
+- Opciones funcionales: Se recomienda implementar en un `struct` la interfaz `Option` en lugar de capturar valores con un `closure`.
+
 # 2020-10-23
 
 - Evite la mutación de variables globales (nueva sección). 
