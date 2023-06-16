@@ -1528,8 +1528,8 @@ func F() string { return "A" }
 
 ```go
 var _s = F()
-// Since F already states that it returns a string, we don't need to specify
-// the type again.
+// Como F ya indica que devuelve una cadena, no hace falta especificar 
+// el tipo de nuevo.
 
 func F() string { return "A" }
 ```
