@@ -1388,9 +1388,7 @@ import (
 - Las funciones deben agruparse por proximidad de llamada.
 - Las funciones de un fichero deben agruparse por su receptor.
 
-Por lo tanto, las funciones públicas aparecerán al principio del fichero, después de las definiciones de
-Therefore, exported functions should appear first in a file, after
-`struct`, `const`, `var`.
+Por lo tanto, las funciones públicas aparecerán al principio del fichero, después de las definiciones de `struct`, `const`, `var`.
 
 El constructor `newXYZ()`/`NewXYZ()` debe aparecer después de que el tipo sea definido, pero antes del resto de métodos del receptor.
 
