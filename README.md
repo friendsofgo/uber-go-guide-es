@@ -2021,10 +2021,7 @@ La declaración y la inicialización es visualmente distinta.
 </td></tr>
 </tbody></table>
 
-Donde sea posible, añade la capacidad cuando incialices los `maps` con `make()`. 
-Where possible, provide capacity hints when initializing
-maps with `make()`. Más información:
-[Especificar una capacidad aproximada al Map](#especificar-una-capacidad-aproximada-al-map).
+Donde sea posible, añade la capacidad cuando incialices los `maps` con `make()`.Más información: [Especificar una capacidad aproximada al Map](#especificar-una-capacidad-aproximada-al-map).
 
 Por otro lado, si el `map` tiene un tamaño fijo de elementos, declara literalmente el `map` al inicializarlo.
 
