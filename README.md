@@ -1388,9 +1388,7 @@ import (
 - Las funciones deben agruparse por proximidad de llamada.
 - Las funciones de un fichero deben agruparse por su receptor.
 
-Por lo tanto, las funciones públicas aparecerán al principio del fichero, después de las definiciones de
-Therefore, exported functions should appear first in a file, after
-`struct`, `const`, `var`.
+Por lo tanto, las funciones públicas aparecerán al principio del fichero, después de las definiciones de `struct`, `const`, `var`.
 
 El constructor `newXYZ()`/`NewXYZ()` debe aparecer después de que el tipo sea definido, pero antes del resto de métodos del receptor.
 
@@ -1530,8 +1528,8 @@ func F() string { return "A" }
 
 ```go
 var _s = F()
-// Since F already states that it returns a string, we don't need to specify
-// the type again.
+// Como F ya indica que devuelve una cadena, no hace falta especificar 
+// el tipo de nuevo.
 
 func F() string { return "A" }
 ```
@@ -2021,10 +2019,7 @@ La declaración y la inicialización es visualmente distinta.
 </td></tr>
 </tbody></table>
 
-Donde sea posible, añade la capacidad cuando incialices los `maps` con `make()`. 
-Where possible, provide capacity hints when initializing
-maps with `make()`. Más información:
-[Especificar una capacidad aproximada al Map](#especificar-una-capacidad-aproximada-al-map).
+Donde sea posible, añade la capacidad cuando inicialices los `maps` con `make()`. Más información: [Especificar una capacidad aproximada al Map](#especificar-una-capacidad-aproximada-al-map).
 
 Por otro lado, si el `map` tiene un tamaño fijo de elementos, declara literalmente el `map` al inicializarlo.
 
